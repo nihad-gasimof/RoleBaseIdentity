@@ -1,0 +1,39 @@
+﻿@model blet15.ViewModels.LoginVM
+
+@{
+ ViewData["Title"] = "Admin Login";
+}
+
+<div class="row justify-content-center mt-5">
+ <div class="col-md-6 col-lg-4">
+ <div class="card shadow-sm">
+ <div class="card-body">
+ <h3 class="card-title mb-4 text-center">Admin Girişi</h3>
+
+ @* Show model state errors *@
+ <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+ <form asp-area="Admin" asp-controller="Auth" asp-action="Login" method="post">
+ @Html.AntiForgeryToken()
+
+ <div class="mb-3">
+ <label asp-for="Email" class="form-label">Email</label>
+ <input asp-for="Email" class="form-control" type="email" />
+ <span asp-validation-for="Email" class="text-danger"></span>
+ </div>
+
+ <div class="mb-3">
+ <label asp-for="Password" class="form-label">Şifrə</label>
+ <input asp-for="Password" class="form-control" type="password" />
+ <span asp-validation-for="Password" class="text-danger"></span>
+ </div>
+
+ <div class="d-grid">
+ <button type="submit" class="btn btn-primary">Daxil ol</button>
+ </div>
+ </form>
+
+ </div>
+ </div>
+ </div>
+</div>
